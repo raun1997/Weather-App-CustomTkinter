@@ -1,0 +1,7 @@
+tkinter
+customtkinter
+geopy
+bs4
+requests
+pillow
+json
