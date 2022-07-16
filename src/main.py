@@ -8,6 +8,9 @@ import re
 from PIL import ImageTk, Image
 import json
 from datetime import datetime as dt
+import decouple
+
+key = decouple.config("API_KEY")
 
 def show_location():
     """
@@ -28,7 +31,7 @@ def show_location():
 
 def current_weather(city):
     # generates the url
-    url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "%20&units=metric&appid=4c252364e3f8712e6d14a4a586bfa2b4"
+    url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "%20&units=metric&appid=" + key
 
     # grabs the content from the URL
     html = requests.get(url)
@@ -167,7 +170,7 @@ class CTkApp(CTk):
 
     # def current_weather(self, city):
     #     # generates the url
-    #     url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "%20&units=metric&appid=4c252364e3f8712e6d14a4a586bfa2b4"
+    #     url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "%20&units=metric&appid=" + key
     #
     #     # grabs the content from the URL
     #     html = requests.get(url)
